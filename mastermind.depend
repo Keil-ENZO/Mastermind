@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1673707170 source:c:\users\enzok\onedrive\bureau\mastermind\main.cpp
+	<iostream>
+	<string>
+	<conio.h>
+	<windows.h>
+
+1673707216 source:d:\mastermind\main.cpp
+	<iostream>
+	<string>
+	<conio.h>
+	<windows.h>
+

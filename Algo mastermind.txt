@@ -1,0 +1,118 @@
+Programme mastermind
+
+	typFormule :  vecteur de caracteres de 5 cases; //Creer des tableaux
+
+	//Fonction pour placer chaque element a une place precise
+	void afficheValeur(x, y : entier; val : entier) {
+		gotoxy(x, y)
+		Afficher val
+	}
+
+	//Fonction pour controle si les couleurs proposer son valide
+	fonction caracValide(c : carac) : boolean {
+		char varCouleur = {'R','B','N','V','O','G','J'}
+		tantque(varCouleurl[i] != c et i < 6)
+			i++
+		fintantque
+		return(varCouleur[i] = c)
+	}
+	
+	//Fonction pour choisir les couleurs que l'on veut 
+	fonction SaisieCouleur(x,y : entier) : carc {
+		char c;
+		do(gotoxy(x, y))
+			c = getche()
+		while !caracValide(c)
+		return c
+	}
+
+	//Fonction pour caculer si les couleurs sont bien places
+	function calculBP(vec1, vec2 : typFormule) : entier {
+    		Bp <- 0
+   		 pour i allant de 1 a 5 
+      			si vec1[i] = vec2[i] alors
+           			Bp <- Bp + 1
+            			vec1[i] <- 'X'
+           			vec2[i] <- 'Y'
+        			finsi
+   		finpour
+   		retourner Bp
+	}
+
+	//Fonction pour caculer si les couleurs sont mal places
+	fonction calculMP(vec1, vec2 : typFormule) : entier {
+   		 Mp <- 0
+   		 pour i allant de 0 à la taille de vec1 :
+       			pour j allant de 0 à la taille de vec2 :
+           			 si vec1[i] est égal à vec2[j] :
+                				Mp <- Mp + 1
+                				vec1[i] <- 'X'
+               				vec2[j] <- 'Y'
+           			fin si
+        			fin pour
+    		fin pour
+    		return Mp
+	}
+
+
+Debut
+	
+	varOriginal, varCopie, varEssai : typFormule;
+  	Bp, Mp : int;
+	nbEssai : int;
+	i  : int;
+	x, y : int;
+
+	
+	// Boucle pour remplir varOriginal
+	pour i allant de 1 à la taille varOriginal :
+    		couleur = saisieCouleur(x, y) 
+    		varOriginal[i] = couleur 
+	fin pour
+	
+	nbEssai : 0;
+	//Boucle qui repete l'operation 5 fois
+	repeter
+		nbEssai <- nbEssai + 1
+		//Incremente varEssai et copie varOriginal dans varCopie
+		pour i allant de 1 à la taille varOriginal :
+			couleur = saisieCouleur(x, y) 
+    			varEssai[i] = couleur 
+			varCopie[] = varOriginal[]
+		finpour
+		fonction caculBp()
+		fonction caculMp()
+		afficheValeur(x, y)
+	jusqu'a Bp = 5
+
+	//Permet d'afficher un etat quand le joueur a touver la bonne reponse
+	message = ""
+	Si nbEssai <= 5:
+    		message = "Bravo!"
+	Sinon si nbEssai <= 10:
+   	 	message = "Correct!"
+	Sinon:
+   		 message = "Décevant."
+
+	gotoxy(x, y)
+	Afficher "Nombre d'essais : " + nbEssai + " - " + message
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
